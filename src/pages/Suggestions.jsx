@@ -73,7 +73,7 @@ export default function Suggestions() {
 
   function copyProjectDetails(project) {
     const lines = [
-      `CROWDFUND VERIFIED PROJECT RECORD`,
+      `CROWDFUNDING VERIFIED PROJECT RECORD`,
       `Title: ${project.title}`,
       `Category: ${project.category} | Location: ${project.location}`,
       `Target Funding: ${money(project.targetFunding)} | Duration: ${project.tenureMonths} months`,

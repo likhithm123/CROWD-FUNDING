@@ -50,7 +50,7 @@ function Shell() {
   const route = useRoute();
   const [authMode, setAuthMode] = useState(route.path[0] === 'signup' ? 'signup' : 'signin');
 
-  if (!ready) return <Loading label="Opening CrowdFund…" />;
+  if (!ready) return <Loading label="Opening CrowdFunding…" />;
   if (!user) return <AuthPage mode={authMode} onSwitch={setAuthMode} />;
 
   const section = ALLOWED[user.role].includes(route.path[0]) ? route.path[0] : NAV[user.role][0][0];
@@ -112,7 +112,7 @@ function TopBar({ user, section }) {
   return (
     <header className="topbar">
       <div className="topbar-inner">
-        <a className="wordmark" href="#/"><Mark /> CrowdFund</a>
+        <a className="wordmark" href="#/"><Mark /> CrowdFunding</a>
         <nav className="nav" aria-label="Main">
           {NAV[user.role].map(([key, label]) => (
             <a key={key} href={`#/${key}`} aria-current={active === key ? 'page' : undefined}>

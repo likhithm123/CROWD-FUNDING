@@ -1,4 +1,4 @@
-// CrowdFund AI Inventory Recommendation Model
+// CrowdFunding AI Inventory Recommendation Model
 //
 // Suggests structured, verified inventory bill-of-materials based on category,
 // budget, scale, and high-profit / high-potential renewable resource economics.
@@ -1285,7 +1285,7 @@ async function generateInsights({ category, items, budget, totalCost, tier, cust
   const geminiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
   if (geminiKey) {
     try {
-      const prompt = `You are the CrowdFund AI Senior Financial & Sustainability Analyst.
+      const prompt = `You are the CrowdFunding AI Senior Financial & Sustainability Analyst.
 Analyze this inventory bill-of-materials for the "${category}" category.
 Target Budget: ${inr(budget)}, Estimated Total: ${inr(totalCost)}, Scale: ${tier}.
 ${customPrompt ? `Customer Special Request: "${customPrompt}"` : ''}

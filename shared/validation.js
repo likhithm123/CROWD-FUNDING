@@ -102,7 +102,7 @@ export function validateSignup(input, { allowedRoles = PUBLIC_ROLES } = {}) {
   if (input.confirmPassword !== undefined && input.confirmPassword !== input.password) {
     errors.confirmPassword = 'Passwords don’t match.';
   }
-  if (!allowedRoles.includes(role)) errors.role = 'Choose how you’ll use CrowdFund.';
+  if (!allowedRoles.includes(role)) errors.role = 'Choose how you’ll use CrowdFunding.';
   if (input.acceptTerms !== undefined && input.acceptTerms !== true) {
     errors.acceptTerms = 'You need to accept the terms to create an account.';
   }

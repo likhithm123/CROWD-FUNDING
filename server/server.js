@@ -906,7 +906,7 @@ async function start() {
   await bootstrapAccount('ADMIN', 'ADMIN', 'Platform Admin');
   await bootstrapAccount('SUPPORT', 'SUPPORT', 'Support Team');
   await query('DELETE FROM sessions WHERE expires_at < NOW()');
-  app.listen(PORT, () => console.log(`CrowdFund API listening on port ${PORT}`));
+  app.listen(PORT, () => console.log(`CrowdFunding API listening on port ${PORT}`));
 }
 
 start().catch((err) => {

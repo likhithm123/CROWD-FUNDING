@@ -8,7 +8,7 @@ export default function AuthPage({ mode, onSwitch }) {
     <div className="auth">
       <aside className="auth-side">
         <div>
-          <div className="wordmark"><Mark /> CrowdFund</div>
+          <div className="wordmark"><Mark /> CrowdFunding</div>
           <h1>Fund local projects you can follow line by line.</h1>
           <p>Every project is checked by a reviewer before it can raise money, and every rupee in or out is written to a tamper-evident ledger anyone signed in can verify.</p>
           <ol className="auth-steps">

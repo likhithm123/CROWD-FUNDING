@@ -205,7 +205,7 @@ export default function Inventory() {
   function exportBOM() {
     if (!data) return;
     const lines = [
-      `CROWDFUND INVENTORY BILL OF MATERIALS (ROI & RENEWABLE ANALYSIS)`,
+      `CROWDFUNDING INVENTORY BILL OF MATERIALS (ROI & RENEWABLE ANALYSIS)`,
       `Customer: ${user.name} (${user.email}) | Role: ${user.role}`,
       `Category: ${data.category} | Scale: ${data.tierLabel}`,
       `Total Estimated Cost: ${money(data.totalEstimatedCost)} (Target: ${money(data.targetBudget)})`,
@@ -719,7 +719,7 @@ export default function Inventory() {
               <div className="row-between" style={{ borderBottom: '2px solid var(--line)', paddingBottom: 12, marginBottom: 16 }}>
                 <div>
                   <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--pine-dark)' }}>
-                    CrowdFund
+                    CrowdFunding
                   </div>
                   <div className="faint small">OFFICIAL INVENTORY & RENEWABLE ASSET RECEIPT</div>
                 </div>
@@ -825,7 +825,7 @@ export default function Inventory() {
                   type="button"
                   className="btn btn-ghost btn-sm"
                   onClick={() => {
-                    const text = `CrowdFund Official Inventory Receipt\nReceipt ID: ${receiptModal.receiptId}\nCustomer: ${receiptModal.customerName} (${receiptModal.customerEmail})\nItem: ${receiptModal.quantity}x ${receiptModal.itemName}\nTotal: ${money(receiptModal.totalAmount)}\nResource: ${receiptModal.resourceType}\nPotential: ${receiptModal.profitPotential}\nPayback: ${receiptModal.paybackMonths} months\nSHA-256: ${receiptModal.verificationHash}\nImpact: ${receiptModal.aiImpactNote}`;
+                    const text = `CrowdFunding Official Inventory Receipt\nReceipt ID: ${receiptModal.receiptId}\nCustomer: ${receiptModal.customerName} (${receiptModal.customerEmail})\nItem: ${receiptModal.quantity}x ${receiptModal.itemName}\nTotal: ${money(receiptModal.totalAmount)}\nResource: ${receiptModal.resourceType}\nPotential: ${receiptModal.profitPotential}\nPayback: ${receiptModal.paybackMonths} months\nSHA-256: ${receiptModal.verificationHash}\nImpact: ${receiptModal.aiImpactNote}`;
                     navigator.clipboard.writeText(text);
                     toast('Receipt copied to clipboard!');
                   }}

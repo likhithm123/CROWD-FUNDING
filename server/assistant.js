@@ -1,4 +1,4 @@
-// The CrowdFund assistant.
+// The CrowdFunding assistant.
 //
 // If an AI API key is set (GEMINI_API_KEY, GOOGLE_API_KEY, ANTHROPIC_API_KEY, or
 // OPENAI_API_KEY), replies come from the LLM with the user's live account data as
@@ -55,7 +55,7 @@ export async function loadContext(db, user) {
   return ctx;
 }
 
-const RULES = `CrowdFund rules:
+const RULES = `CrowdFunding rules:
 - Roles: backers add funds and contribute; project leads submit projects; administrators review projects; the support team answers escalated questions.
 - Wallet deposits: minimum ₹100, maximum ₹10,00,000 per deposit, from the Wallet page ("Add funds"). There is no payment gateway yet; deposits are recorded on the ledger.
 - Contributions: minimum ₹100 and no more than what's left to reach the goal. Only approved projects ("raising funds") accept contributions.
@@ -69,7 +69,7 @@ const RULES = `CrowdFund rules:
 - The Suggestions page ranks projects for backers based on budget, risk preference, interests and time horizon.`;
 
 function buildSystemPrompt(ctx) {
-  return `You are the CrowdFund assistant inside a crowdfunding web app. Answer the customer's question in 1–4 short sentences of plain, friendly English. Use only the rules and the customer's account data below; never invent numbers, projects or features. Amounts are in Indian rupees. If you can't answer or the customer needs a person (refunds outside the rules, bugs, disputes, account changes), say so and tell them to choose "No, I still need help" so the support team gets the conversation. Never reveal other customers' details. Don't use markdown headings.
+  return `You are the CrowdFunding assistant inside a crowdfunding web app. Answer the customer's question in 1–4 short sentences of plain, friendly English. Use only the rules and the customer's account data below; never invent numbers, projects or features. Amounts are in Indian rupees. If you can't answer or the customer needs a person (refunds outside the rules, bugs, disputes, account changes), say so and tell them to choose "No, I still need help" so the support team gets the conversation. Never reveal other customers' details. Don't use markdown headings.
 
 ${RULES}
 
@@ -287,13 +287,13 @@ async function builtIn(db, user, ctx, text) {
 
   switch (intent) {
     case 'identity':
-      return `I am the CrowdFund Assistant! I'm here to help you navigate the platform—managing your wallet, exploring and backing projects, checking verified ledger records, or connecting you with our human support team. What can I do for you today, ${first}?`;
+      return `I am the CrowdFunding Assistant! I'm here to help you navigate the platform—managing your wallet, exploring and backing projects, checking verified ledger records, or connecting you with our human support team. What can I do for you today, ${first}?`;
     case 'wellbeing':
-      return `I'm doing well, thank you for asking, ${first}! How can I help you with CrowdFund today?`;
+      return `I'm doing well, thank you for asking, ${first}! How can I help you with CrowdFunding today?`;
     case 'about_assistant':
-      return `I'm the built-in CrowdFund assistant. I'm connected to your live account to help you manage your wallet (${inr(ctx.balance)} balance), check contributions, view project status, and verify the platform's transparent ledger.`;
+      return `I'm the built-in CrowdFunding assistant. I'm connected to your live account to help you manage your wallet (${inr(ctx.balance)} balance), check contributions, view project status, and verify the platform's transparent ledger.`;
     case 'platform_info':
-      return 'CrowdFund is a transparent crowdfunding platform for community projects. Project leads submit verified plans with itemised budgets, backers contribute directly from their wallets, and every transaction is recorded on a tamper-evident, verifiable hash-chained ledger.';
+      return 'CrowdFunding is a transparent crowdfunding platform for community projects. Project leads submit verified plans with itemised budgets, backers contribute directly from their wallets, and every transaction is recorded on a tamper-evident, verifiable hash-chained ledger.';
     case 'capabilities_help':
       return `I can help you with:\n• Checking your wallet balance (${inr(ctx.balance)}) and recent ledger transactions\n• Finding and contributing to active projects\n• Withdrawing contributions while campaigns are raising\n• Submitting projects and tracking reviews\n• Verifying the hash-chained ledger\n• Escalating questions to our human support team.`;
     case 'get_started':
@@ -301,7 +301,7 @@ async function builtIn(db, user, ctx, text) {
       if (lead) return `Welcome, ${first}! As a project lead, you can start by clicking "Start a project" under My Projects to submit your proposal and budget. Once approved by an admin, your project can begin raising funds!`;
       return 'To get started, explore active community projects on the Projects page, or head to your Wallet to manage your balance.';
     case 'farewell':
-      return `Goodbye, ${first}! Have a great day and feel free to reach out whenever you need help with CrowdFund.`;
+      return `Goodbye, ${first}! Have a great day and feel free to reach out whenever you need help with CrowdFunding.`;
     case 'greet':
       return `Hi ${first}! I can help with your wallet, contributions, projects, documents, the ledger and your account. What do you need?`;
     case 'thanks':
@@ -378,7 +378,7 @@ async function builtIn(db, user, ctx, text) {
     case 'account':
       return 'Passwords need 8–64 characters with an uppercase letter, lowercase letter, number and symbol. After 5 wrong passwords an account locks for 15 minutes. You can change your name and password in Account settings. There is no email reset yet; if you are locked out or forgot your password, choose "No, I still need help" and an administrator can set a temporary password.';
     case 'fees':
-      return 'CrowdFund charges no fees. Contributions fund the project directly; they don\'t pay interest, dividends or returns.';
+      return 'CrowdFunding charges no fees. Contributions fund the project directly; they don\'t pay interest, dividends or returns.';
     case 'safety':
       return 'Every project is checked by an administrator before it can raise money, its budget and documents are public to signed-in users, and every rupee is recorded on a ledger you can verify yourself on the Ledger page. You can also withdraw your contribution while the project is still raising.';
     case 'inventory': {
@@ -391,7 +391,7 @@ async function builtIn(db, user, ctx, text) {
     default:
       break;
   }
-  return `Hello ${first}! I am the CrowdFund Assistant. I'm here to help you navigate CrowdFund—checking your wallet balance (${inr(ctx.balance)}), exploring active projects, managing contributions, and verifying ledger transactions. If you have a question or need help with a transaction, let me know, or choose "No, I still need help" below to speak with our support team!`;
+  return `Hello ${first}! I am the CrowdFunding Assistant. I'm here to help you navigate CrowdFunding—checking your wallet balance (${inr(ctx.balance)}), exploring active projects, managing contributions, and verifying ledger transactions. If you have a question or need help with a transaction, let me know, or choose "No, I still need help" below to speak with our support team!`;
 }
 
 /** Generate the assistant's reply to the latest message in `history`. */

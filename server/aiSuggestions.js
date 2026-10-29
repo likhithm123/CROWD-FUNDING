@@ -1,4 +1,4 @@
-// CrowdFund AI Project Query Filter & Explainability Engine
+// CrowdFunding AI Project Query Filter & Explainability Engine
 //
 // Filters strictly from actual project data stored in the database.
 // Evaluates relevance to user query, explains why each project matches,
@@ -264,7 +264,7 @@ export async function getAiSuggestions({ db, userQuery, targetBudget = null, cat
 
       // Try quick Gemini call to craft personalized relevance explanation
       if (cleanQuery && process.env.GEMINI_API_KEY) {
-        const geminiPrompt = `You are a project analyst on CrowdFund platform.
+        const geminiPrompt = `You are a project analyst on CrowdFunding platform.
 User Query: "${cleanQuery}"
 Project Title: "${p.title}"
 Category: "${p.category}"
